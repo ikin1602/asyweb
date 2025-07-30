@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #fcefee, #ffe6f0);
+      font-family: 'Patrick Hand', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-9/cur825.cur'), auto;
+    }
+
+    .envelope-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .envelope-img {
+      width: 150px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+    }
+
+    .envelope-img:hover {
+      transform: scale(1.1) rotate(-2deg);
+    }
+
+    .love-letter {
+      position: relative;
+      max-width: 600px;
+      background-color: #fff0f5;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      font-size: 1.2em;
+      color: #444;
+      font-family: 'Patrick Hand', cursive;
+      animation: fadeIn 0.6s ease;
+      z-index: 1001;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #ff8fab;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background: #d65a8e;
+    }
+
+    .float-heart {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.5;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .vinyl-wrapper {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      z-index: 999;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .vinyl-wrapper:hover {
+      transform: scale(1.1);
+    }
+
+    #vinyl {
+      width: 100%;
+      height: auto;
+      animation: spin 4s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .spinning {
+      animation-play-state: running !important;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .walking-cat {
+      position: fixed;
+      bottom: 10px;
+      left: -150px;
+      width: 100px;
+      z-index: 1000;
+      animation: walk-across 15s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes walk-across {
+      0% { left: -150px; }
+      100% { left: 100vw; }
+    }
+	
+	div.navbar { 
+    border: 1px solid black;
+    background-color: #D0B8A8;
+    padding: 10px;
+    color: #504B38;
+}
+
+.navbar a {
+    color: #AF3E3E;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+    h1 {
+      font-size: 3em;
+      color: #AF3E3E;
+      margin-bottom: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div class="navbar"><b>
+<a href="index.html">Home</a>
+<a href="home2.html">Activity</a>
+</b></div>
+<br><br>
+<h1> Click to read message</h1>
+  <!-- Envelope -->
+  <div class="envelope-container" id="envelope" onclick="openEnvelope()">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2Zsa3hkZ2Zydzd5bDk0emo1YjJscWJmMjdvbTVzc2xwN3l2bXl4cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/xSa3MCP3HxbcMJQWME/giphy.gif" alt="Cute Envelope" class="envelope-img">
+  </div>
+
+  <!-- Love Letter -->
+  <div class="love-letter hidden" id="letter">
+    <button class="close-btn" onclick="closeEnvelope()">×</button>
+    <h2>Dear Ammar 💗</h2>
+    <p>
+    Hey Ammar,
+
+I’m not really sure how to say this smoothly, so I thought I’d just be honest.
+
+Even though we’ve only known each other for a short while, I’ve started to feel something for you. It kinda caught me by surprise too — but it’s there, and I didn’t want to just keep it to myself.
+
+I’d really love to get to know you more. Just… learn about the little things that make you you. I enjoy talking to you, and I always look forward to hearing from you — even if it’s just something small.
+
+Please don’t feel any pressure. I’m not expecting anything from you. I just wanted to be real about how I feel and share it with you.
+
+So yeah, that’s it. Just me being a little brave and a little nervous 😅
+
+-Asy
+    </p>
+  </div>
+
+  <!-- Floating hearts -->
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="float-heart" style="left: 15%;" />
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="float-heart" style="left: 45%; animation-delay: 2s;" />
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="float-heart" style="left: 75%; animation-delay: 4s;" />
+
+  <!-- Walking cat -->
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHpoOXptZHRqcTk2dnFtMXNpNzQ3c2o2dXh2ejRoem05NzVzNTJkMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9PaZX8Np5vwJGrg4L0/giphy.gif" 
+       class="walking-cat" alt="cat walking">
+
+  <!-- Vinyl Music Player -->
+  <div class="vinyl-wrapper" onclick="toggleMusic()">
+    <img id="vinyl" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW5oZ211eXloeG16MzAxbTQ2a292NHRlcTRoaGxxMHV2enRoYmhjayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/6bXd6ZTYpZWrC/giphy.gif" alt="Vinyl" />
+  </div>
+
+  <!-- Music Audio -->
+  <audio id="bgm" loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- Scripts -->
+  <script>
+    const vinyl = document.getElementById('vinyl');
+    const music = document.getElementById('bgm');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+        vinyl.classList.remove('spinning');
+      } else {
+        music.play();
+        vinyl.classList.add('spinning');
+      }
+      isPlaying = !isPlaying;
+    }
+
+    function openEnvelope() {
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('letter').classList.remove('hidden');
+    }
+
+    function closeEnvelope() {
+      document.getElementById('letter').classList.add('hidden');
+      document.getElementById('envelope').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
